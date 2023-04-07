@@ -1,9 +1,15 @@
 <template>
-  <p>Hello World!</p>
+  <div>
+    <p>{{ message }}</p>
+    <input v-model="message">
+  </div>
 </template>
 
 <script>
-export default {
-  name: "HelloWorld",
-};
-</script>
+  export default {
+    name: "HelloWorld",
+    data: () => ({
+      message: 'Hello World!',
+    }),
+  };
+  </script>
