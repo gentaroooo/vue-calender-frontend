@@ -22,6 +22,9 @@
         @click:event="showEvent"
       ></v-calendar>
     </v-sheet>
+    <v-dialog :value="dialogMessage !== ''">
+      <h1>{{ dialogMessage }}</h1>
+    </v-dialog>
   </div>
 </template>
 
@@ -33,6 +36,7 @@ export default {
   name: 'Calendar',
   data: () => ({
     value: format(new Date(), 'yyyy/MM/dd'),
+    dialogMessage: '',
   }),
   computed: {
     ...mapGetters('events', ['events']),
@@ -46,7 +50,7 @@ export default {
         this.value = format(new Date(), 'yyyy/MM/dd')
     },
     showEvent({ event }) {
-        alert(event.name)
+      this.dialogMessage = event.name
     },
   }
 };
